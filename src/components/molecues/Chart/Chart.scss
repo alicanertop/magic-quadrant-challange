@@ -1,0 +1,91 @@
+.chart {
+  $size: var(--size);
+  position: relative;
+  width: $size;
+  min-width: $size;
+  height: $size;
+  border: 2px solid var(--darkGrey);
+
+  &::before {
+    content: '-';
+    top: 50%;
+    left: 50%;
+    height: 0px;
+    z-index: -1;
+    width: $size;
+    color: transparent;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    border-top: 2px solid var(--lightGrey);
+  }
+  &::after {
+    content: '-';
+    left: 50%;
+    width: 0px;
+    z-index: -1;
+    height: $size;
+    color: transparent;
+    position: absolute;
+    transform: translateX(-50%);
+    border-left: 2px solid var(--lightGrey);
+  }
+
+  &-y-axis-label {
+    width: $size;
+    left: -15px;
+    bottom: 0;
+    position: absolute;
+    pointer-events: none;
+    transform: translate(-50%, calc(-1 * var(--size) / 2)) rotate(-90deg);
+  }
+  &-x-axis-label {
+    width: $size;
+    bottom: -5px;
+    position: absolute;
+    pointer-events: none;
+    transform: translateY(100%);
+  }
+
+  .chart-label {
+    position: absolute;
+    color: white;
+    padding: 5px;
+    z-index: -1;
+    border-radius: 5px;
+    background-color: var(--lightBlue);
+    &.top-left {
+      top: 5px;
+      left: 0;
+      &.center {
+        left: 25%;
+        transform: translate(-50%, 0);
+      }
+    }
+    &.top-right {
+      top: 5px;
+      right: 0;
+      &.center {
+        right: 25%;
+        transform: translate(50%, 0);
+      }
+    }
+    &.bottom-left {
+      bottom: 0;
+      left: 0;
+      &.center {
+        left: 25%;
+        bottom: 5px;
+        transform: translate(-50%, 0);
+      }
+    }
+    &.bottom-right {
+      bottom: 0;
+      right: 0;
+      &.center {
+        right: 25%;
+        bottom: 5px;
+        transform: translate(50%, 0);
+      }
+    }
+  }
+}

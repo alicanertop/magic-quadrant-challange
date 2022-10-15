@@ -1,0 +1,61 @@
+.chart-table {
+  width: 100%;
+  $size: 400px;
+  height: $size;
+  max-width: 650px;
+  margin-left: 10px;
+
+  .chart-row {
+    display: flex;
+    width: 100%;
+  }
+
+  &-header {
+    width: 100%;
+    margin: 2px;
+    color: white;
+    min-width: 75px;
+    padding: 4px 5px;
+    border-radius: 7px;
+    text-align: center;
+    font-family: Courier New sans-serif;
+    background-color: var(--lightBlue);
+    &-container {
+      display: flex;
+      width: 100%;
+    }
+
+    &.check {
+      max-width: 45px;
+      min-width: unset;
+    }
+
+    &.label {
+      min-width: 125px;
+    }
+  }
+  &-content {
+    width: 100%;
+    margin: 2px;
+    display: flex;
+    padding: 0 2px;
+    border-radius: 7px;
+    align-items: center;
+    justify-content: center;
+
+    &.label {
+      min-width: 133px;
+    }
+    &.check {
+      max-width: 53px;
+    }
+
+    &-container {
+      display: flex;
+      width: 100%;
+      overflow: auto;
+      flex-direction: column;
+      max-height: calc(#{$size} - 50px);
+    }
+  }
+}

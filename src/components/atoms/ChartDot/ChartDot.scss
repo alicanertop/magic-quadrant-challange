@@ -1,0 +1,64 @@
+.chart-dot {
+  position: absolute;
+  height: var(--size);
+  width: var(--size);
+  border-radius: 50%;
+  background-color: var(--lightGrey);
+  cursor: move;
+
+  &.enabled {
+    background-color: var(--darkBlue);
+  }
+
+  &-container {
+    display: flex;
+    width: var(--size);
+    height: var(--size);
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+
+    &.dragging {
+      border: 1px solid black;
+
+      &.projection {
+        &::before {
+          content: '-';
+          position: absolute;
+          color: transparent;
+          border-top: 1px dashed orange;
+          border-right: 1px dashed orange;
+          pointer-events: none;
+          width: calc(var(--projection-width) + var(--size) / 2);
+          height: calc(var(--projection-height) + calc(var(--size) * -1 / 1.5) + 8px);
+          transform: translate(
+            calc(-50% + calc(-1 * var(--size) / 3 / 3) + 4px),
+            calc(50% + var(--size) / 3 / 3 - 6px)
+          );
+        }
+
+        &.projectionOverlay {
+          &::before {
+            border-top: none;
+            border-right: none;
+            background-color: rgba(255, 0, 0, 0.5);
+          }
+        }
+      }
+    }
+
+    .chart-dot-label {
+      &-container {
+        position: relative;
+      }
+
+      position: absolute;
+      pointer-events: none;
+      width: 100vw;
+      font-size: 13px;
+      color: var(--darkBlue);
+      transform: translate(var(--posX), var(--posY));
+    }
+  }
+}
